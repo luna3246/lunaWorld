@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>데이터 타입의 변환</title>
+    <script>
+      let ive = true;
+      console.log(typeof ive, ive); // 타입은 boolean 값은 true
+      ive = String(ive);
+      console.log(typeof ive, ive); // 타입은 string 값은 true
+
+      let a = 100;
+      a = String(a);
+      a = a + "";
+      console.log(typeof a); // 타입은 string
+
+      let now = new Date();
+      console.log(typeof now, now); // 타입은 object
+      console.log(now.toLocaleDateString());
+
+      let jangWonYoung = "123";
+      jangWonYoung = Number(jangWonYoung);
+      console.log(typeof jangWonYoung);
+
+      //boolean으로 변환
+      console.log(Boolean(1));
+      console.log(Boolean(0));
+      console.log(Boolean("hello")); // true
+      console.log(Boolean("")); // false
+    </script>
+  </head>
+  <body></body>
+</html>
