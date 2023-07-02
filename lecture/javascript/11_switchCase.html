@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch~case문</title>
+    <script>
+      window.onload = function () {
+        let randNum = 0;
+        let ive_name = "",
+          ive_img = "";
+      
+
+      randNum = Math.floor(Math.random() * 10) + 1;
+      //   console.log(randNum);
+      switch (randNum) {
+        case 1:
+          ive_name = "가을";
+          ive_img = "images/fall.webp";
+          break;
+        case 2:
+          ive_name = "레이";
+          ive_img = "images/ray.webp";
+          break;
+        case 3:
+          ive_name = "리즈";
+          ive_img = "images/riz.webp";
+          break;
+        case 4:
+          ive_name = "안유진";
+          ive_img = "images/yuJin.webp";
+          break;
+        case 5:
+          ive_name = "이서";
+          ive_img = "images/leeSeo.webp";
+          break;
+        default:
+          ive_name = "장원영";
+          ive_img = "images/wonYoung.webp";
+        }
+
+          console.log(ive_name, ive_name, randNum);
+          document.getElementById("ive_name").innerHTML = ive_name;
+          document.getElementById("ive_img").src = ive_img;
+      };
+    </script>
+    <style>
+        .wrap {
+          width: 600px;
+        }
+        .title {
+          text-align: center;
+          border-bottom: 1px solid #333;
+        }
+  
+        .ive_name {
+          text-align: center;
+          font-size: 20px;
+        }
+        .ive_img {
+          text-align: center;
+        }
+      </style>
+      </head>
+      <body>
+        <div class="wrap">
+          <h1 class="title">아이브</h1>
+          <img class="ive_img" id="ive_img" />
+          <div class="ive_name" id="ive_name"></div>
+      </body>
+</html>

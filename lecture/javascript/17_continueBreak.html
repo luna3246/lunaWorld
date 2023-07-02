@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>continue/break</title>
+    <script>
+      // 1 ~ 100까지 홀수합 구하기
+      let oddSum = 0;
+      for (let i = 1; i < 101; i++) {
+        if (i % 2 != 0) {
+          oddSum += i;
+        } else {
+          continue;
+          //   document.write("홀수합 출력");
+        }
+      }
+      document.write(oddSum);
+
+      // 1부터 누적합을 구하되 몇까지 더해야 500이 넘어가는지 출력
+      let sum = 0;
+      for (let i = 0; i < 2000; i++) {
+        document.write(i + "<br/>");
+        sum += i;
+        if (sum >= 500) {
+          break;
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

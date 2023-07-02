@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열에서 최대값 최솟값 구하기</title>
+    <script src="js/common.js"></script>
+    <script>
+      let data = new Array(10);
+      let tmp = -1;
+      for (let i = 0; i < data.length; i++) {
+        do {
+          tmp = Math.floor(Math.random() * 100) + 1;
+        } while (isDuplicate(data, tmp));
+        data[i] = tmp;
+      }
+      console.log(data);
+
+      let table = "<table border='1'>";
+      for (let i = 0; i < data.length; i++) {
+        table += `<tr><td id="${data[i]}">${data[i]}</td></tr>`;
+      }
+      table += "</table>";
+
+      document.write(table);
+
+      let max = 0,
+        min = 101;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i] > max) {
+          max = data[i];
+        }
+        if (data[i] < min) {
+          min = data[i];
+        }
+      }
+
+      document.getElementById(max + "").style.backgroundColor = "blue";
+      document.getElementById(min + "").style.backgroundColor = "red";
+
+      document.write(`최대값은 ${max}, 최소값은 ${min}`);
+    </script>
+  </head>
+  <body></body>
+</html>

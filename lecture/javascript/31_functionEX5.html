@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>내장함수</title>
+    <script>
+      // 문자열로 표현된 JavaScript 코드를 실행하는 함수
+      let result = eval("2*3+5");
+      console.log(result); // 11
+
+      // 문자열을 정수로 변환하는 함수
+      //   document.write(parseInt("3.14")); // 3
+      //   document.write(parseInt("가나다")); // NaN
+      //   document.write(parseInt("3.14입니다.")); // 3
+
+      // 숫자가 아니면 true 숫자이면 false
+      //   document.write(isNaN(23)); // false
+      //   document.write(isNaN("아리가또")); //true
+
+      // isFinite(): 유한(숫자)냐?
+      document.write(isFinite(100));
+    </script>
+  </head>
+  <body></body>
+</html>

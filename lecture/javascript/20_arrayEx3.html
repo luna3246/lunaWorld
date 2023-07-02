@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로또 번호 생성기</title>
+    <script src="js/common.js"></script>
+    <script>
+      const lotto = new Array(6);
+      let tmp = -1;
+      for (let i = 0; i < lotto.length; i++) {
+        do {
+          tmp = Math.floor(Math.random() * 45) + 1;
+        } while (isDuplicate(lotto, tmp));
+        lotto[i] = tmp;
+      }
+      console.log(lotto);
+      document.write(`이번주의 로또 1등 번호는 ${lotto}`);
+    </script>
+  </head>
+  <body></body>
+</html>

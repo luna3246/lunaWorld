@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>do~while문</title>
+    <script>
+      let userInput = 0;
+      do {
+        userInput = Number(window.prompt("숫자를 입력해!"));
+      } while (!Number.isFinite(userInput));
+      document.write(userInput);
+    </script>
+  </head>
+  <body></body>
+</html>

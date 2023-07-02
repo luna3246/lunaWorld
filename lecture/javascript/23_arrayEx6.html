@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simple Image Slider</title>
+    <script>
+      const images = new Array(6);
+      images[0] = "./images/fall.webp";
+      images[1] = "./images/leeSeo.webp";
+      images[2] = "./images/ray.webp";
+      images[3] = "./images/riz.webp";
+      images[4] = "./images/wonYoung.webp";
+      images[5] = "./images/yuJin.webp";
+
+      let curImgNo = 0;
+
+      function prev() {
+        if (curImgNo == 0) {
+          curImgNo = images.length;
+        }
+        document.getElementById("imgSlide").src = images[--curImgNo];
+      }
+
+      function next() {
+        if (++curImgNo == images.length) {
+          curImgNo = 0;
+        }
+        document.getElementById("imgSlide").src = images[curImgNo];
+      }
+      let isAuto = false;
+
+      function autoSlide() {
+        isAuto = !isAuto;
+
+        if (isAuto) {
+          document.getElementById("autoBtn").style.backgroundColor = "violet";
+          setInterval(next, 3000); // ? 선택사항 ms 단위로 실행
+        } else {
+          location.reload(); // 페이지 새로고침
+        }
+      }
+    </script>
+    <style>
+      button {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <img src="./images/fall.webp" id="imgSlide" />
+    </div>
+    <div class="controller">
+      <!-- button으로 만들지 않아도 a 태그로 만들 수 있다. -->
+      <a href="#" onclick="prev();">이전</a>
+      <a href="#" onclick="next();">다음</a>
+      <button onclick="autoSlide();" id="autoBtn">auto</button>
+    </div>
+  </body>
+</html>

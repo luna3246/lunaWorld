@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>성적표(2차원 배열을 이용한)</title>
+    <script>
+      const STUDENT_CNT = 5; // 학생 인원수 설정
+      let scores = [
+        ["230627_1", "둘리", 98, 44, 23],
+        ["230627_2", "도우너", 77, 24, 90],
+        ["230627_3", "마이콜", 100, 22, 77],
+        ["230627_4", "희동이", 100, 22, 77],
+        ["230627_5", "고길동", 88, 77, 80],
+      ];
+
+      for (let i = 0; i < scores.length; i++) {
+        scores[i][5] = scores[i][2] + scores[i][3] + scores[i][4]; // 총점
+        scores[i][6] = (scores[i][5] / 3).toFixed(2); // 평균
+
+        switch (Math.floor(scores[i][6] / 10)) {
+          case 10:
+          case 9:
+            scores[i][7] = "A";
+            break;
+          case 8:
+            scores[i][7] = "B";
+            break;
+          case 7:
+            scores[i][7] = "C";
+            break;
+          case 6:
+            scores[i][7] = "D";
+            break;
+          default:
+            scores[i][7] = "F";
+        }
+      }
+
+      function sortScores(order) {
+        scores.sort(function (a, b) {
+          // 내림차순 정렬
+          if (order === "desc") {
+            return b[6] - a[6];
+          }
+          // 오름차순 정렬
+          else if (order === "asc") {
+            return a[6] - b[6];
+          }
+        });
+      }
+
+      sortScores("desc"); // 초기 정렬은 내림차순으로 설정
+
+      let rank = 1;
+      scores[0][8] = rank; // 첫 번째 학생은 1등으로 초기화
+      for (let i = 1; i < scores.length; i++) {
+        rank++;
+        if (scores[i][6] !== scores[i - 1][6]) {
+          // 이전 학생과 평균 비교
+          rank = i + 1; // 동일한 평균 점수가 아니면 등수 갱신
+        }
+        scores[i][8] = rank;
+      }
+
+      let output = `<table border="1">`;
+      output += `<tr><th>학번</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th><th>평균</th><th>등수</th></tr>`;
+      for (let i = 0; i < scores.length; i++) {
+        output += `<tr>`;
+        for (let j = 0; j < scores[0].length; j++) {
+          output += `<td>${scores[i][j]}</td>`;
+        }
+        output += `</tr>`;
+      }
+      output += `</table>`;
+
+      window.onload = function () {
+        document.getElementById("output").innerHTML = output;
+      };
+
+      function order() {
+        const radios = document.getElementsByName("order");
+        let selectedOrder = "";
+        radios.forEach((radio) => {
+          if (radio.checked) {
+            selectedOrder = radio.value;
+          }
+        });
+        sortScores(selectedOrder);
+        generateTable();
+      }
+
+      function generateTable() {
+        let output = `<table border="1">`;
+        output += `<tr><th>학번</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th><th>평균</th><th>등수</th></tr>`;
+        for (let i = 0; i < scores.length; i++) {
+          output += `<tr>`;
+          for (let j = 0; j < scores[0].length; j++) {
+            output += `<td>${scores[i][j]}</td>`;
+          }
+          output += `</tr>`;
+        }
+        output += `</table>`;
+
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>성적표</h1>
+    <div id="order">
+      <input type="radio" value="asc" name="order" />오름차순 정렬
+      <input type="radio" value="desc" name="order" checked />내림차순 정렬
+      <button onclick="order()">정렬</button>
+    </div>
+    <div id="output"></div>
+  </body>
+</html>

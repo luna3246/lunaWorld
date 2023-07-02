@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열과 함께 쓰면 좋은 반복문</title>
+    <script>
+      const ive = ["가을", "이서", "레이", "리즈", "원영", "유진"];
+
+      ive[0] = "사쿠라";
+      console.log(ive);
+
+      //   for (let i = 0; i < ive.length; i++) {
+      //     document.write(ive[i]);
+      //   }
+
+      //
+
+      //   for (let i in ive) {
+      //     document.write(ive[i] + ", ");
+      //   }
+
+      //   for (let i of ive) {
+      //     document.write(i + ", ");
+      //   }
+
+      ive.forEach(function (member, i) {
+        document.write(`<div>${i}번째 멤버 : ${member}</div>`);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>성적표V2</title>
+    <script>
+      window.onload = function () {
+        let stuNo = "",
+          stuName = "",
+          kor = 0,
+          eng = 0,
+          math = 0,
+          total = 0,
+          avg = 0,
+          grade = "";
+
+        stuNo = window.prompt("학번을 입력하십시오", "202117258");
+        stuName = window.prompt("이름을 입력하십시오", "강태풍");
+        kor = Number(window.prompt("국어점수를 입력하십시오", "88"));
+        eng = Number(window.prompt("영어점수를 입력하십시오", "75"));
+        math = Number(window.prompt("수학점수를 입력하십시오", "95"));
+
+        total = kor + eng + math;
+        avg = Math.round(total / 3);
+        console.log(Math.floor(avg / 10));
+
+        switch (Math.floor(avg / 10)) {
+          case 10:
+            grade = "A";
+          case 9:
+            grade = "A";
+            break;
+          case 8:
+            grade = "B";
+            break;
+          case 7:
+            grade = "C";
+            break;
+          case 6:
+            grade = "D";
+            break;
+          default:
+            grade = "F";
+        }
+        let table = `<table border = '1'><tr><th>학번</th><th>이름</th><th>국어</th><th>영어</th><th>수학</th><th>총점</th><th>평균</th><th>등급</th></tr>`;
+
+        table += `<tr><td>${stuNo}</td>`;
+        table += `<td>${stuName}</td>`;
+        table += `<td>${kor}</td>`;
+        table += `<td>${eng}</td>`;
+        table += `<td>${math}</td>`;
+        table += `<td>${total}</td>`;
+        table += `<td>${avg}</td>`;
+        table += `<td>${grade}</td></tr></table>`;
+
+        document.getElementById("table").innerHTML = table;
+      };
+    </script>
+  </head>
+  <body>
+    <h4>성적표</h4>
+    <div id="table"></div>
+  </body>
+</html>

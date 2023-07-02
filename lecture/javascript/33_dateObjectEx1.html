@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 객체</title>
+    <script>
+      const now = new Date();
+      console.log(now);
+
+      document.write(`<div>현재 : ${now}</div>`);
+      document.write(`<div>연도 : ${now.getFullYear()}년</div>`);
+      document.write(`<div>월 : ${now.getMonth() + 1}월</div>`);
+      document.write(`<div>일 : ${now.getDate()}일</div>`);
+      document.write(`<div>요일 : ${now.getDay()}요일</div>`);
+      // 일요일(0) ~ 토요일(6)
+
+      const day = ["일", "월", "화", "수", "목", "금", "토"];
+      document.write(`<div>요일 : ${day[now.getDay()]}요일</div>`);
+      document.write(`<div>시간 : ${now.getHours()}시</div>`);
+      document.write(`<div>분 : ${now.getMinutes()}분</div>`);
+      document.write(`<div>시간 : ${now.getSeconds()}초</div>`);
+
+      let date = new Date();
+      date.setFullYear(2022);
+      console.log(date);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>초 간단 기념일 계산기</title>
+    <script>
+      // 반류값, 현재날짜 얻어내고 둘이 빼주고 onclick
+      // timestamp 로 인해 연산 비교 가능
+      const calcDate = function () {
+        let userDate = new Date(document.getElementById("celeDate").value);
+        console.log(userDate, typeof userDate);
+
+        let curDate = new Date();
+        let tmp = null;
+        let output = "";
+        if (curDate > userDate) {
+          // 몇 일 지났습니다.
+          tmp = curDate - userDate;
+          output = Math.floor(tmp / 1000 / 60 / 60 / 24) + "일 지났습니다."; // timestamp값
+        } else if (curDate < userDate) {
+          // 몇 일 남았습니다.
+          tmp = userDate - curDate;
+          output = Math.floor(tmp / 1000 / 60 / 60 / 24) + "일 남았습니다."; //
+        }
+        document.getElementById("result").innerHTML = output;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="calendar">
+      기념일을 입력하고 확인 버튼을 누르세요
+      <input type="date" id="celeDate" />
+      <button onclick="calcDate();">확인</button>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>

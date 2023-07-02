@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체의 종류</title>
+    <script>
+      /** 1.내장객체 : 웹 브라우저가 실행될 떄, 웹 브라우저 내에
+       *  있는 자바스크립트 실행기에 의해 생성되는 객체.
+       *  웹 브라우저가 종료되면 그 객체들 또한 메모리에서 소멸
+       * 프로그래머가 별도로 객체를 생성하지 않고 사용 가능
+       */
+      console.log();
+      document.write();
+      window.alert();
+
+      /** 2. static 객체 : 웹 브라우저가 실행되어 메모리에 로드 될
+       * 함께 로딩되는 객체. 프로그래머가 별도로 객체를 생성할 수
+       * 없으며 별도로 객체를 생성할 수 없으며, 웹 브라우저가 종료
+       * 될 때까지 소멸되지 않는다.
+       */
+      console.log(Math.E);
+
+      /** 3. instance 객체 : 객체를 new 연산자를 통해 생성해야 사용할 수 있다. 필요없다면 소멸시킬 수 있다.
+       */
+
+      class Member {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        static displayMember() {
+          document.write(`<div>이름은 ${this.name} 이고, 나이는 ${this.age} 인 멤버 입니다</div>`);
+        }
+      }
+      let member1 = new Member("둘리", 19);
+      let member2 = new Member("도우너", 22);
+
+      console.log(member1.name);
+      console.log(member2.age);
+    </script>
+  </head>
+  <body></body>
+</html>
